@@ -59,15 +59,6 @@ const StudentForm = ({ open, onClose, student }) => {
       return;
     }
 
-    if (
-      students.some(
-        (s) => s.id === idNumber && (!student || student.id !== idNumber)
-      )
-    ) {
-      toast.error("Student ID already exists!");
-      return;
-    }
-
     const marks = Number(formData.totalMarks);
     if (isNaN(marks) || marks < 0 || marks > 500) {
       toast.error("Total Marks must be between 0 and 500!");
