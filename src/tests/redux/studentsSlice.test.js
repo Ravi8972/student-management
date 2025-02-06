@@ -13,8 +13,8 @@ describe('studentsSlice', () => {
   beforeEach(() => {
     initialState = cloneDeep({
       students: [
-        { id: 1, name: 'John Doe', totalMarks: 450, address: '123 Street' },
-        { id: 2, name: 'Jane Smith', totalMarks: 400, address: '456 Avenue' },
+        { id: 1, name: 'test user-1', totalMarks: 450, address: '123 vasai' },
+        { id: 2, name: 'test user-2', totalMarks: 400, address: '456 nsp' },
       ],
     });
   });
@@ -24,7 +24,7 @@ describe('studentsSlice', () => {
   });
 
 test('should add a student', () => {
-    const newStudent = { id: 3, name: 'New Student', totalMarks: 500, address: '789 Road' };
+    const newStudent = { id: 3, name: 'New Student', totalMarks: 500, address: '789 virar' };
     const action = addStudent(newStudent);
     const nextState = studentsReducer(initialState, action);
   
@@ -35,7 +35,7 @@ test('should add a student', () => {
 
 
   test('should update an existing student', () => {
-    const updatedStudent = { id: 1, name: 'John Doe Updated', totalMarks: 470, address: '123 Street' };
+    const updatedStudent = { id: 1, name: 'test user-1', totalMarks: 470, address: '123 vashi' };
 
     const action = updateStudent({ ...updatedStudent, originalId: 1 });
     const nextState = studentsReducer(initialState, action);
@@ -58,7 +58,7 @@ test('should add a student', () => {
   test('should handle empty students array', () => {
     initialState.students = [];
 
-    const newStudent = { id: 3, name: 'New Student', totalMarks: 500, address: '789 Road' };
+    const newStudent = { id: 3, name: 'New Student', totalMarks: 500, address: '789 CST' };
 
     const action = addStudent(newStudent);
     const nextState = studentsReducer(initialState, action);
