@@ -13,7 +13,6 @@ const studentsSlice = createSlice({
   reducers: {
     addStudent: (state, action) => {
       state.students.push(action.payload);
-      // saveStudents(state.students);
       saveStudents(current(state.students));
     },
     updateStudent: (state, action) => {
@@ -26,7 +25,6 @@ const studentsSlice = createSlice({
     deleteStudent: (state, action) => {
       state.students = state.students.filter(s => s.id !== action.payload);
       saveStudents(state.students);
-     // saveStudents(current(state.students));
     }
   }
 });

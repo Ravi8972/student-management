@@ -30,7 +30,6 @@ test('should add a student', () => {
   
     expect(nextState.students).toHaveLength(3);
     expect(nextState.students).toContainEqual(newStudent);
-    // Check if saveStudents was called with the expected plain array
     expect(saveStudents).toHaveBeenCalledWith(nextState.students);
   });
 
@@ -44,7 +43,7 @@ test('should add a student', () => {
     const cleanedStudents = nextState.students.map(({ originalId, ...rest }) => rest);
 
     expect(cleanedStudents).toContainEqual(updatedStudent);
-    expect(saveStudents).toHaveBeenCalledWith(nextState.students); // No need for JSON.parse(JSON.stringify())
+    expect(saveStudents).toHaveBeenCalledWith(nextState.students); 
   });
 
   test('should delete a student', () => {
@@ -53,7 +52,7 @@ test('should add a student', () => {
 
     expect(nextState.students).toHaveLength(1);
     expect(nextState.students).not.toContainEqual(initialState.students[0]);
-    expect(saveStudents).toHaveBeenCalledWith(nextState.students); // No need for JSON.parse(JSON.stringify())
+    expect(saveStudents).toHaveBeenCalledWith(nextState.students);
   });
 
   test('should handle empty students array', () => {
@@ -66,6 +65,6 @@ test('should add a student', () => {
 
     expect(nextState.students).toHaveLength(1);
     expect(nextState.students).toContainEqual(newStudent);
-    expect(saveStudents).toHaveBeenCalledWith(nextState.students); // No need for JSON.parse(JSON.stringify())
+    expect(saveStudents).toHaveBeenCalledWith(nextState.students);
   });
 });
